@@ -1,10 +1,14 @@
+<script setup>
+import LeafMap from '../.vitepress/components/LeafMap.vue'
+</script>
+
 # 前往 COSCUP
 
 ## 國立臺灣科技大學
 
 106 台北市大安區基隆路四段 43 號
 
-<晚點這邊放地圖>
+<LeafMap />
 
 ## 交通資訊
 
