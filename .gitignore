@@ -130,5 +130,6 @@ dist
 .pnp.*
 
 
-.vitepress/cache
-.vitepress/dist
+package-lock.json
+docs/.vitepress/cache/
+docs/.vitepress/dist/
