@@ -17,5 +17,10 @@
     "noEmit": true,
     "isolatedModules": true,
     "skipLibCheck": true
-  }
+  },
+  "include": [
+    ".vitepress/**/*",
+    "components/**/*",
+    "loaders/**/*"
+  ]
 }
