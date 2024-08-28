@@ -9,7 +9,7 @@
     // Required until this issue is resolved
     // https://github.com/microsoft/TypeScript/issues/52460
     "paths": {
-      "#*": ["./src/*"]
+      "#*": ["./*"]
     },
 
     "allowImportingTsExtensions": true,
