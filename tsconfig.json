@@ -18,9 +18,16 @@
     "isolatedModules": true,
     "skipLibCheck": true
   },
+
   "include": [
     ".vitepress/**/*",
     "components/**/*",
     "loaders/**/*"
-  ]
+  ],
+
+  "vueCompilerOptions": {
+    "vitePressExtensions": [
+      ".md"
+    ]
+  }
 }
