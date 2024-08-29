@@ -12,6 +12,9 @@
       "#*": ["./*"]
     },
 
+    "types": [
+      "unplugin-icons/types/vue"
+    ],
     "allowImportingTsExtensions": true,
     "strict": true,
     "noEmit": true,

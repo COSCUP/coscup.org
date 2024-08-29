@@ -30,3 +30,6 @@ lerna-debug.log*
 .env
 .env.*
 !.env.example
+
+# unplugin-vue-components
+components.d.ts
