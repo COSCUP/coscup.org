@@ -2,6 +2,7 @@ import { defineConfig } from 'vitepress'
 import Components from 'unplugin-vue-components/vite'
 import Icons from 'unplugin-icons/vite'
 import IconsResolver from 'unplugin-icons/resolver'
+import { conference } from '../data/conference'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -18,10 +19,10 @@ export default defineConfig({
       Icons({ compiler: 'vue3' }),
     ],
   },
-  title: 'COSCUP 2024',
+  title: `COSCUP ${conference.year}`,
   description: 'A VitePress Site',
   srcDir: 'content',
-  base: '/2024',
+  base: `/${conference.year}`,
   cleanUrls: true,
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
