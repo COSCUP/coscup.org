@@ -25,6 +25,8 @@
   "include": [
     ".vitepress/**/*",
     "components/**/*",
+    "content/**/*",
+    "data/**/*",
     "loaders/**/*"
   ],
 
