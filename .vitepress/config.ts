@@ -22,7 +22,7 @@ export default defineConfig({
       Icons({ compiler: 'vue3' }),
     ],
   },
-  title: `COSCUP ${conference.year}`,
+  title: conference.title,
   description: 'A VitePress Site',
   srcDir: 'content',
   base: `/${conference.year}`,
