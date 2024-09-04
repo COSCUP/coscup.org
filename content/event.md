@@ -88,6 +88,29 @@ async function addToCalendar(type: CalendarType) {
   </Suspense>
 </ClientOnly>
 
+<div class="actions">
+  <VPButton
+    theme="alt"
+    href="https://www.openstreetmap.org/relation/5355856"
+    target="_blank"
+  >
+    <IconPhMagnifyingGlass /> 開放街圖
+  </VPButton>
+  <VPButton
+    theme="alt"
+    href="https://www.google.com/maps/search/?api=1&query=國立臺灣科技大學&query_place_id=ChIJrcDEdiGqQjQRVfQp7kRe25A"
+    target="_blank"
+  >
+    <IconPhGoogleLogo /> Google 地圖
+  </VPButton>
+  <VPButton
+    theme="alt"
+    href="https://maps.apple.com/place?auid=1091116063745527859"
+    target="_blank"
+  >
+    <IconPhAppleLogo /> Apple 地圖
+  </VPButton>
+</div>
 :::
 
 ## 交通資訊
@@ -119,6 +142,10 @@ svg {
     gap: 8px;
     margin: 8px 0;
     overflow-x:auto;
+
+    a {
+      text-decoration: none;
+    }
   }
 
   :deep(a:hover) {
