@@ -66,6 +66,11 @@ onMounted(() => {
 </template>
 
 <style>
+/* Create a new stacking context for Leaflet */
+.leaflet-container {
+  isolation: isolate;
+}
+
 .dark {
   .leaflet-layer {
     filter: invert(100%) hue-rotate(180deg) contrast(60%);
