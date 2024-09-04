@@ -4,11 +4,9 @@ const venueAddress = '106 台北市大安區基隆路四段 43 號'
 
 # 活動資訊
 
-## 交通資訊
+::: info <IconPhMapPin /> 位置
 
-::: info <IconPhMapPin />
-
-### 國立臺灣科技大學
+## 國立臺灣科技大學
 
 {{ venueAddress }} <CopyButton :source="venueAddress" />
 
@@ -24,6 +22,8 @@ const venueAddress = '106 台北市大安區基隆路四段 43 號'
 
 :::
 
+## 交通資訊
+
 <style scoped>
 svg {
   vertical-align: text-bottom;
@@ -32,11 +32,17 @@ svg {
 
 .custom-block {
   .custom-block-title {
-    font-size: xx-large;
+    font-size: large;
   }
 
-  h3 {
-    margin-bottom: 8px;
+  h2 {
+    margin: 24px 0 16px;
+    padding: 0;
+    border-top: none;
+
+    .header-anchor {
+      display: none;
+    }
   }
 
   /* Reset VitePress styles for map buttons */
