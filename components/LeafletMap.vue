@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
-import Leaflet from 'leaflet'
 import 'leaflet/dist/leaflet.css'
 import osmToGeoJSON from 'osmtogeojson'
 
@@ -41,7 +40,8 @@ const buildingGeometries = await queryOverpass([
 
 const mapEl = ref()
 
-onMounted(() => {
+onMounted(async () => {
+  const Leaflet = await import('leaflet')
   const map = Leaflet.map(mapEl.value)
 
   Leaflet.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {

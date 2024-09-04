@@ -13,12 +13,14 @@ const venueAddress = '106 台北市大安區基隆路四段 43 號'
 {{ venueAddress }} <CopyButton :source="venueAddress" />
 
 <!-- prettier-ignore -->
-<Suspense>
-  <LeafletMap class="map" />
-  <template #fallback>
-    <div class="map loading"><IconPhMapPinAreaBold /></div>
-  </template>
-</Suspense>
+<ClientOnly>
+  <Suspense>
+    <LeafletMap class="map" />
+    <template #fallback>
+      <div class="map loading"><IconPhMapPinAreaBold /></div>
+    </template>
+  </Suspense>
+</ClientOnly>
 
 :::
 
