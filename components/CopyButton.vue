@@ -6,11 +6,14 @@ const props = defineProps<{
 }>()
 
 const { copy, copied, isSupported } = useClipboard({ source: props.source })
+
+// Unconditionally render in SSR, but only render in client if supported
+const shouldRender = import.meta.env.SSR || isSupported.value
 </script>
 
 <template>
   <button
-    v-if="isSupported"
+    v-if="shouldRender"
     class="CopyButton"
     title="Copy"
     @click="copy(source)"

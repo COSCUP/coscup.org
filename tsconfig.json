@@ -13,6 +13,7 @@
     },
 
     "types": [
+      "vite/client",
       "unplugin-icons/types/vue"
     ],
     "allowImportingTsExtensions": true,
