@@ -23,7 +23,7 @@ export default defineConfig({
     ],
   },
   title: conference.title,
-  description: 'A VitePress Site',
+  description: conference.description,
   srcDir: 'content',
   base: `/${conference.year}`,
   cleanUrls: true,
