@@ -1,8 +1,76 @@
 <script setup lang="ts">
+import { conference } from '#data/conference'
+import type { CalendarEvent } from 'calendar-link';
+
+const start = conference.startDate.toLocaleDateString()
+const end = conference.endDate.toLocaleDateString()
+
 const venueAddress = '106 台北市大安區基隆路四段 43 號'
+
+// Supported calendar types by `calendar-link`
+type CalendarType = keyof typeof import('calendar-link')
+
+// Create an link or an ICS file to add the event to the user's calendar
+async function addToCalendar(type: CalendarType) {
+  const { [type]: getCalendarLink } = await import('calendar-link')
+
+  const event: CalendarEvent = {
+    title: conference.title,
+    description: `<a href="${document.location.origin}">${conference.description}</a>`,
+    start: conference.startDate,
+    end: conference.endDate,
+    allDay: true,
+    location: venueAddress,
+  }
+
+  const link = getCalendarLink(event) as string
+
+  if (type == 'ics') {
+    // Set the ICS file name by creating an anchor element
+    const anchor = document.createElement('a')
+    anchor.href = link
+    anchor.download = `${conference.title}.ics`
+    anchor.click()
+  } else {
+    window.open(link, '_blank')
+  }
+}
 </script>
 
 # 活動資訊
+
+::: info <IconPhCalendarDots /> 日期
+
+## {{ start }} – {{ end }}
+
+<div class="actions">
+  <VPButton
+    theme="alt"
+    @click="addToCalendar('google')"
+  >
+    <IconPhGoogleLogo /> Google 日曆
+  </VPButton>
+  <VPButton
+    theme="alt"
+    @click="addToCalendar('outlookMobile')"
+  >
+    <IconPhMicrosoftOutlookLogo /> Outlook
+  </VPButton>
+  <VPButton
+    theme="alt"
+    @click="addToCalendar('yahoo')"
+  >
+    <IconPhExclamationMark /> Yahoo
+  </VPButton>
+  <VPButton
+    theme="alt"
+    @click="addToCalendar('ics')"
+  >
+    <IconPhCalendarPlus /> ICS
+  </VPButton>
+</div>
+
+:::
 
 ::: info <IconPhMapPin /> 位置
 
@@ -46,6 +114,13 @@ svg {
   }
 
   /* Reset VitePress styles for map buttons */
+  .actions {
+    display: flex;
+    gap: 8px;
+    margin: 8px 0;
+    overflow-x:auto;
+  }
+
   :deep(a:hover) {
     opacity: unset;
   }
