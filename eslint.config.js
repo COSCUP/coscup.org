@@ -13,6 +13,7 @@ export default antfu(
       'node/prefer-global/process': ['error', 'always'],
       'style/arrow-parens': ['error', 'always'],
       'style/brace-style': ['error', '1tbs'],
+      'style/no-multi-spaces': ['error', { ignoreEOLComments: true }],
       'style/operator-linebreak': ['error', 'after', { overrides: { '?': 'before', ':': 'before' } }],
       'vue/max-attributes-per-line': ['error'],
       'vue/attributes-order': ['error', { alphabetical: true }],
