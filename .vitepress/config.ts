@@ -3,6 +3,10 @@ import Components from 'unplugin-vue-components/vite'
 import Icons from 'unplugin-icons/vite'
 import IconsResolver from 'unplugin-icons/resolver'
 
+// Subpath imports (e.g. '#data') for TypeScript files are not supported
+// See https://github.com/vuejs/vitepress/issues/4173
+import { conference } from '../data/conference'
+
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   vite: {
@@ -18,10 +22,10 @@ export default defineConfig({
       Icons({ compiler: 'vue3' }),
     ],
   },
-  title: 'COSCUP 2024',
-  description: 'A VitePress Site',
+  title: conference.title,
+  description: conference.description,
   srcDir: 'content',
-  base: '/2024',
+  base: `/${conference.year}`,
   cleanUrls: true,
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
