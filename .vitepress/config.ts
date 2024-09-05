@@ -2,6 +2,7 @@ import { defineConfig } from 'vitepress'
 import Components from 'unplugin-vue-components/vite'
 import Icons from 'unplugin-icons/vite'
 import IconsResolver from 'unplugin-icons/resolver'
+import { FileSystemIconLoader } from 'unplugin-icons/loaders'
 
 // Subpath imports (e.g. '#data') for TypeScript files are not supported
 // See https://github.com/vuejs/vitepress/issues/4173
@@ -16,10 +17,18 @@ export default defineConfig({
         dirs: ['../components'],
         include: [/\.vue($|\?)/, /\.md($|\?)/],
         resolvers: [
-          IconsResolver({ prefix: 'icon' }),
+          IconsResolver({
+            prefix: 'icon',
+            customCollections: ['local'],
+          }),
         ],
       }),
-      Icons({ compiler: 'vue3' }),
+      Icons({
+        compiler: 'vue3',
+        customCollections: {
+          local: FileSystemIconLoader('assets/icons'),
+        },
+      }),
     ],
   },
   title: conference.title,
