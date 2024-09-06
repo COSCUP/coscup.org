@@ -58,9 +58,16 @@
   // Use the workspace version of TypeScript
   "typescript.tsdk": "node_modules/typescript/lib",
 
-  // Enable Vue language server for markdown
+  // Enable Vue language server for Markdown
   "vue.server.includeLanguages": [
     "vue",
     "markdown"
-  ]
+  ],
+
+  // Enable Emmet for Markdown
+  "emmet.excludeLanguages": [],
+  "emmet.includeLanguages": {
+    "markdown": "html"
+  },
+  "emmet.triggerExpansionOnTab": true
 }
