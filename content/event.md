@@ -78,7 +78,6 @@ async function addToCalendar(type: CalendarType) {
 
 {{ venueAddress }} <CopyButton :source="venueAddress" />
 
-<!-- prettier-ignore -->
 <ClientOnly>
   <Suspense>
     <LeafletMap class="map" />
