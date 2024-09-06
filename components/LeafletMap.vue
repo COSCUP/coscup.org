@@ -30,12 +30,14 @@ function queryOverpass(objects: string[]): Promise<GeoJSON.GeoJsonObject> {
     .then(osmToGeoJSON)
 }
 
-const venueGeometry = await queryOverpass([
-  'relation(5355856)', // 國立台灣科技大學
-])
-const buildingGeometries = await queryOverpass([
-  'way(646301762)', // 研揚大樓 (RB)
-  'way(646293060)', // 綜合研究大樓 (TR)
+const [venueGeometry, buildingGeometries] = await Promise.all([
+  queryOverpass([
+    'relation(5355856)', // 國立台灣科技大學
+  ]),
+  queryOverpass([
+    'way(646301762)', // 研揚大樓 (RB)
+    'way(646293060)', // 綜合研究大樓 (TR)
+  ]),
 ])
 
 const mapEl = ref()
