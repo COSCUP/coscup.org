@@ -148,7 +148,7 @@ svg {
 .map {
   width: 100%;
   height: 400px;
-  margin: 8px 0;
+  margin: 16px 0;
   border-radius: 4px;
 }
 </style>
