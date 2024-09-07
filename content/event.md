@@ -78,14 +78,7 @@ async function addToCalendar(type: CalendarType) {
 
 {{ venueAddress }} <CopyButton :source="venueAddress" />
 
-<ClientOnly>
-  <Suspense>
-    <LeafletMap class="map" />
-    <template #fallback>
-      <div class="map loading"><IconPhMapPinAreaBold /></div>
-    </template>
-  </Suspense>
-</ClientOnly>
+<LeafletMap class="map" />
 
 <div class="actions">
   <VPButton
@@ -152,35 +145,10 @@ svg {
   }
 }
 
-@keyframes pulse {
-  0% {
-    background-color: var(--vp-c-gray-1);
-    box-shadow: 0 0 0 0px var(--vp-c-gray-1);
-  }
-  100% {
-    background-color: transparent;
-    box-shadow: 0 0 0 20px transparent;
-  }
-}
-
 .map {
   width: 100%;
   height: 400px;
   margin: 8px 0;
   border-radius: 4px;
-
-  &.loading {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: xx-large;
-    background-color: var(--vp-c-bg-elv);
-
-    svg {
-      padding: 2px;
-      border-radius: 50%;
-      animation: pulse 2s infinite;
-    }
-  }
 }
 </style>
