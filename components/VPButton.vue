@@ -15,7 +15,7 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 const component = computed(() => {
-  return props.tag || props.href ? 'a' : 'button'
+  return props.tag || (props.href ? 'a' : 'button')
 })
 </script>
 
