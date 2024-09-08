@@ -34,7 +34,7 @@ export default defineConfig({
   title: conference.title,
   description: conference.description,
   srcDir: 'content',
-  base: `/${conference.year}`,
+  base: '/coscup.org',
   cleanUrls: true,
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
