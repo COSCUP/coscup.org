@@ -8,21 +8,12 @@ import { defineLoader } from 'vitepress'
  * @example const geometry = await queryOverpass(['way(1159328965)'])
  */
 function queryOverpass(objects: string[]): Promise<GeoJSON.GeoJsonObject> {
-  /* eslint-disable prefer-template --
-   * string concatenation is more readable across multiple lines
-   */
-  // Build the Overpass API query
-  const query =
-    '[out:json];' +         // Set the output format to JSON
-    objects.map((object) => // For each object
-      `${object};` +        // Query the object
-      'out geom;',          // Output the geometry
-    ).join('')              // Join the queries
-  /* eslint-enable prefer-template */
+  // Query the objects' geometries
+  const queries = objects.map((object) => `${object};out geom;`)
 
   return fetch('https://overpass-api.de/api/interpreter', {
     method: 'POST',
-    body: `data=${query}`,
+    body: `data=[out:json];${queries.join('')}`,
   })
     .then((response) => response.json())
     .then(osmToGeoJSON)
@@ -36,8 +27,7 @@ interface OverpassData {
 /**
  * The geometry of the venue and its buildings.
  */
-declare const data: OverpassData
-export { data }
+export declare const data: OverpassData
 
 export default defineLoader({
   async load(): Promise<OverpassData> {
