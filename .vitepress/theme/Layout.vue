@@ -6,4 +6,5 @@ import DefaultTheme from 'vitepress/theme'
   <DefaultTheme.Layout>
     <Content />
   </DefaultTheme.Layout>
+  <Footer />
 </template>
