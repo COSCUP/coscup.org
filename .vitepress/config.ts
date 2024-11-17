@@ -45,8 +45,8 @@ export default defineConfig({
       { text: 'About', link: '/about' },
     ],
 
-    sidebar: [
-      {
+    sidebar: {
+      '/participate/': [{
         text: 'Participate',
         link: '/participate',
         items: [
@@ -56,8 +56,8 @@ export default defineConfig({
           { text: 'As Sponsor', link: '/participate/sponsor' },
           { text: 'As Organizing', link: '/participate/organizing' },
         ],
-      },
-    ],
+      }],
+    },
 
     socialLinks: [{ icon: 'github', link: 'https://github.com/COSCUP' }],
   },
