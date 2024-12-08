@@ -1,11 +1,5 @@
 <script setup>
-import { Swiper, SwiperSlide } from 'swiper/vue'
-import 'swiper/css'
-import 'swiper/swiper-bundle.css'
 import { register } from 'swiper/element/bundle'
-
-import 'swiper/css/pagination'
-import 'swiper/css/navigation'
 
 import image1 from '#assets/images/image1.webp'
 import image2 from '#assets/images/image2.webp'
@@ -24,15 +18,16 @@ const images = [image1, image2, image3, image4, image5, image6, image7, image8, 
 </script>
 
 <template>
-  <Swiper
+  <swiper-container
     :autoplay="{ delay: 2500, disableOnInteraction: false }"
     :loop="true"
-    :pagination="{ clickable: true }"
+    :navigation="true"
+    :pagination="true"
     :slides-per-view="3"
     :space-between="10"
     :speed="500"
   >
-    <SwiperSlide
+    <swiper-slide
       v-for="src in images"
       :key="src"
     >
@@ -40,8 +35,8 @@ const images = [image1, image2, image3, image4, image5, image6, image7, image8, 
         alt="Image slide"
         :src="src"
       >
-    </SwiperSlide>
-  </Swiper>
+    </swiper-slide>
+  </swiper-container>
 </template>
 
 <style>
