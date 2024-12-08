@@ -31,6 +31,13 @@ export default defineConfig({
       }),
     ],
   },
+  vue: {
+    template: {
+      compilerOptions: {
+        isCustomElement: (tag) => tag.includes('swiper'),
+      },
+    },
+  },
   title: conference.title,
   description: conference.description,
   srcDir: 'content',
