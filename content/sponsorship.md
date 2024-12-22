@@ -6,6 +6,8 @@
 
 ## 贊助方案加價購
 
+<SponsorshipAddonsTable />
+
 ## 常見問答
 
 ## 成為我們的贊助夥伴
