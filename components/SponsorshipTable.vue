@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { marked } from 'marked'
 import { sponsors } from '../data/sponsorship'
 
@@ -7,13 +7,12 @@ function renderMarkdown(text) {
 }
 
 function handlePrint() {
-  // Create a new window with just the table content
   const printContent = document.getElementById('sponsorship-table').innerHTML
   const printWindow = window.open('', '_blank')
   printWindow.document.write(`
     <html>
       <head>
-        <title>COSCUP Sponsorship Levels</title>
+        <title>COSCUP 贊助方案</title>
         <style>
           table { 
             width: 100%;
@@ -21,18 +20,28 @@ function handlePrint() {
             margin: 20px 0;
           }
           th, td {
-            border: 1px solid #ddd;
+            border: 1px solid #000;
             padding: 12px;
             text-align: left;
           }
           th {
-            background-color: #f5f5f5;
+            background-color: #4A4947;
+            color: #FAF7F0;
+            font-weight: bold;
+          }
+          .text-bold {
+            font-weight: bold;
+          }
+          .price-details {
+            margin: 0;
+            padding-left: 20px;
           }
           .benefit-category {
+            background-color: #B17457;
+            border-color: #000;
             font-weight: bold;
-            color: #2c3e50;
-            margin-top: 10px;
-            margin-bottom: 5px;
+            color: #FAF7F0;
+            margin: 10px 0 5px;
           }
           .benefit-list {
             margin: 0;
@@ -65,25 +74,18 @@ function handlePrint() {
   <div class="sponsorship-container">
     <button
       class="print-button no-print"
-      style="margin-bottom: 20px; padding: 8px 16px; background-color: #4CAF50; color: white; border: none; border-radius: 4px; cursor: pointer;"
       @click="handlePrint"
     >
       Print Sponsorship Table
     </button>
 
     <div id="sponsorship-table">
-      <table style="width: 100%; border-collapse: collapse;">
+      <table class="sponsorship-table">
         <thead>
           <tr>
-            <th style="border: 1px solid #ddd; padding: 12px; background-color: #f5f5f5;">
-              贊助等級
-            </th>
-            <th style="border: 1px solid #ddd; padding: 12px; background-color: #f5f5f5;">
-              贊助金額
-            </th>
-            <th style="border: 1px solid #ddd; padding: 12px; background-color: #f5f5f5;">
-              贊助福利
-            </th>
+            <th>贊助等級</th>
+            <th>贊助金額</th>
+            <th>贊助福利</th>
           </tr>
         </thead>
         <tbody>
@@ -91,13 +93,11 @@ function handlePrint() {
             v-for="sponsor in sponsors"
             :key="sponsor.level"
           >
-            <td style="border: 1px solid #ddd; padding: 12px;">
+            <td class="text-bold">
               {{ sponsor.level }}
             </td>
-            <td style="border: 1px solid #ddd; padding: 12px;">
-              <div class="price-main">
-                {{ sponsor.price.main }}
-              </div>
+            <td class="text-bold">
+              {{ sponsor.price.main }}
               <ul class="price-details">
                 <li
                   v-for="detail in sponsor.price.details"
@@ -107,7 +107,7 @@ function handlePrint() {
                 </li>
               </ul>
             </td>
-            <td style="border: 1px solid #ddd; padding: 12px;">
+            <td>
               <template
                 v-for="(benefits, category) in sponsor.benefits"
                 :key="category"
@@ -132,3 +132,74 @@ function handlePrint() {
     </div>
   </div>
 </template>
+
+<style scoped>
+/* Button styling */
+.print-button {
+  margin-bottom: 20px;
+  padding: 8px 16px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Table styling */
+.sponsorship-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  background-color: #4a4947;
+  border: 1px solid #000;
+  color: #faf7f0;
+  font-weight: bold;
+  padding: 12px;
+}
+
+td {
+  background-color: #faf7f0;
+  color: #000;
+  border: 1px solid #000;
+  padding: 12px;
+}
+
+.text-bold {
+  font-weight: bold;
+}
+
+.price-details {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.benefit-category {
+  background-color: #b17457;
+  border: #000;
+  margin: 10px 0 5px;
+  color: #faf7f0;
+  font-weight: bold;
+}
+
+.benefit-list {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.benefit-item {
+  margin: 3px 0;
+}
+
+.benefit-item p {
+  margin: 0;
+}
+
+/* Print-specific styles */
+@media print {
+  .no-print {
+    display: none;
+  }
+}
+</style>
