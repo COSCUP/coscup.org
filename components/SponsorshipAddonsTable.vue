@@ -7,9 +7,8 @@ function handlePrint() {
   printWindow.document.write(`
     <html>
       <head>
-        <title>COSCUP 贊助方案加價購項目</title>
+        <title>COSCUP 贊助方案加價購</title>
         <style>
-          body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
           table { 
             width: 100%;
             border-collapse: collapse;
@@ -21,11 +20,19 @@ function handlePrint() {
             text-align: left;
           }
           th {
-            background-color: #f5f5f5;
+            background-color: #4A4947;
+            border-color: #000;
+            color: #FAF7F0;
           }
           .category-header {
-            background-color: #eef2ff;
-            font-weight: bold;
+            background-color: #B17457;
+            border-color: #000;
+            color: #FAF7F0;
+          }
+          .table-cell {
+            background-color: #FAF7F0;
+            border-color: #000;
+            color: #000;
           }
           .available-mark {
             color: #16a34a;
@@ -55,29 +62,24 @@ function handlePrint() {
   <div class="addons-container">
     <button
       class="print-button no-print"
-      style="margin-bottom: 20px; padding: 8px 16px; background-color: #4CAF50; color: white; border: none; border-radius: 4px; cursor: pointer;"
       @click="handlePrint"
     >
       Print Sponsorship Adds-on Table
     </button>
 
     <div id="addons-table">
-      <table class="min-w-full border-collapse">
+      <table class="addons-table">
         <thead>
           <tr>
-            <th class="border p-3 bg-gray-50">
-              項目說明
-            </th>
+            <th>項目說明</th>
             <th
               v-for="level in sponsorLevels"
               :key="level"
-              class="border p-3 bg-gray-50 text-center"
             >
               {{ level }}
             </th>
           </tr>
         </thead>
-
         <tbody>
           <template
             v-for="category in addons"
@@ -85,7 +87,7 @@ function handlePrint() {
           >
             <tr>
               <td
-                class="category-header border p-3"
+                class="category-header"
                 colspan="9"
               >
                 {{ category.category }}
@@ -95,7 +97,7 @@ function handlePrint() {
               v-for="item in category.items"
               :key="item.name"
             >
-              <td class="border p-3">
+              <td class="table-cell">
                 <ul v-if="Array.isArray(item.details)">
                   <li
                     v-for="detail in item.details"
@@ -109,7 +111,7 @@ function handlePrint() {
               <td
                 v-for="level in sponsorLevels"
                 :key="level"
-                class="text-center"
+                class="table-cell"
               >
                 <span
                   :class="item.eligibility[level] ? 'available-mark' : 'unavailable-mark'"
@@ -132,25 +134,58 @@ function handlePrint() {
 </template>
 
 <style scoped>
+/* Container styling */
 .addons-container {
   margin: 20px auto;
   max-width: 1200px;
 }
 
-table {
+/* Button styling */
+.print-button {
+  margin-bottom: 20px;
+  padding: 8px 16px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Table styling */
+.addons-table {
   width: 100%;
   border-collapse: collapse;
+}
+
+td {
+  border: 1px solid #ddd;
+  padding: 12px;
+}
+
+th {
+  background-color: #4a4947;
+  border-color: #000;
+  color: #faf7f0;
+  padding: 12px;
+}
+
+.category-header {
+  background-color: #b17457;
+  border-color: #000;
+  color: #faf7f0;
+}
+
+.table-cell {
+  background-color: #faf7f0;
+  border-color: #000;
+  color: #000;
 }
 
 td {
   white-space: nowrap;
 }
 
-.category-header {
-  background-color: #eef2ff;
-  font-weight: bold;
-}
-
+/* Status styling */
 .available-mark {
   color: #16a34a;
   font-weight: bold;
@@ -158,5 +193,12 @@ td {
 
 .unavailable-mark {
   color: #dc2626;
+}
+
+/* Print-specific styles */
+@media print {
+  .no-print {
+    display: none;
+  }
 }
 </style>
