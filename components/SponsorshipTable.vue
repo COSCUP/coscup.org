@@ -2,10 +2,6 @@
 import { marked } from 'marked'
 import { sponsors } from '../data/sponsorship'
 
-function renderMarkdown(text) {
-  return marked(text)
-}
-
 function handlePrint() {
   const printContent = document.getElementById('sponsorship-table').innerHTML
   const printWindow = window.open('', '_blank')
@@ -121,7 +117,7 @@ function handlePrint() {
                     :key="benefit"
                     class="benefit-item"
                   >
-                    <span v-html="renderMarkdown(benefit)" />
+                    <span v-html="marked(benefit)" />
                   </li>
                 </ul>
               </template>
