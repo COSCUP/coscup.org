@@ -2,10 +2,6 @@
 import { marked } from 'marked'
 import { faqList } from '../data/sponsorship'
 
-function renderMarkdown(text) {
-  return marked(text)
-}
-
 function toggleAnswer(index) {
   faqList.value[index].isOpen = !faqList.value[index].isOpen
 }
@@ -28,7 +24,7 @@ function toggleAnswer(index) {
         v-if="item.isOpen"
         class="faq-answer"
       >
-        <span v-html="renderMarkdown(item.answer)" />
+        <span v-html="marked(item.answer)" />
       </div>
     </div>
   </div>
@@ -38,6 +34,7 @@ function toggleAnswer(index) {
 .faq-container {
   max-width: 800px;
   margin: auto;
+  padding: 16px;
 }
 
 .faq-item {
@@ -45,8 +42,8 @@ function toggleAnswer(index) {
 }
 
 .faq-question {
-  background: #4caf50;
-  color: white;
+  background: #4a4947;
+  color: #fff;
   padding: 12px;
   border: none;
   width: 100%;
@@ -58,8 +55,20 @@ function toggleAnswer(index) {
 
 .faq-answer {
   padding: 10px;
-  background-color: #f9f9f9;
+  background-color: #faf7f0;
   border-radius: 4px;
   margin-top: 8px;
+  color: #000;
+}
+
+/* Dark mode styles */
+html.dark .faq-question {
+  background: #4a4947;
+  color: #e4e4e7;
+}
+
+html.dark .faq-answer {
+  background-color: #2f3645;
+  color: #faf7f0;
 }
 </style>
