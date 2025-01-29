@@ -14,7 +14,7 @@ export default defineConfig({
     plugins: [
       Components({
         // Auto import components and icons in Vue and Markdown files
-        dirs: ['../components'],
+        dirs: ['../components', '.'],
         include: [/\.vue($|\?)/, /\.md($|\?)/],
         resolvers: [
           IconsResolver({
