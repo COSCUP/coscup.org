@@ -1,5 +1,5 @@
 <script setup>
-import { addons, sponsorLevels } from '../data/sponsorship'
+import { addons, sponsorLevels } from '#data/sponsorship'
 
 function handlePrint() {
   const printContent = document.getElementById('addons-table').innerHTML
