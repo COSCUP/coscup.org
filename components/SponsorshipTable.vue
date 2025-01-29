@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup>
 import { marked } from 'marked'
 import { sponsors } from '../data/sponsorship'
 
