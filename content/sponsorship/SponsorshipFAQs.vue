@@ -1,6 +1,6 @@
 <script setup>
 import { marked } from 'marked'
-import { faqList } from '../data/sponsorship'
+import { faqList } from '#data/sponsorship'
 
 function toggleAnswer(index) {
   faqList.value[index].isOpen = !faqList.value[index].isOpen

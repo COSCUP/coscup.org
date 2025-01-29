@@ -1,6 +1,6 @@
 <script setup>
 import { marked } from 'marked'
-import { sponsors } from '../data/sponsorship'
+import { sponsors } from '#data/sponsorship'
 
 function handlePrint() {
   const printContent = document.getElementById('sponsorship-table').innerHTML
