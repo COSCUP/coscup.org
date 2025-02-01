@@ -2,8 +2,8 @@
 import { addons, sponsorLevels } from '#data/sponsorship'
 
 function handlePrint() {
-  const printContent = document.getElementById('addons-table').innerHTML
-  const printWindow = window.open('', '_blank')
+  const printContent = document.getElementById('addons-table')!.innerHTML
+  const printWindow = window.open('', '_blank')!
   printWindow.document.write(`
     <html>
       <head>
@@ -94,8 +94,8 @@ function handlePrint() {
               </td>
             </tr>
             <tr
-              v-for="item in category.items"
-              :key="item.name"
+              v-for="item, index in category.items"
+              :key="index"
             >
               <td class="table-cell">
                 <ul v-if="Array.isArray(item.details)">

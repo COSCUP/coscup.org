@@ -2,7 +2,7 @@
 import { marked } from 'marked'
 import { faqList } from '#data/sponsorship'
 
-function toggleAnswer(index) {
+function toggleAnswer(index: number) {
   faqList.value[index].isOpen = !faqList.value[index].isOpen
 }
 </script>
