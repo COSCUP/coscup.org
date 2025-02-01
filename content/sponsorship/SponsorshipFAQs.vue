@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { marked } from 'marked'
 import { faqList } from '#data/sponsorship'
 

@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { addons, sponsorLevels } from '#data/sponsorship'
 
 function handlePrint() {
