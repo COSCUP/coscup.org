@@ -3,8 +3,8 @@ import { marked } from 'marked'
 import { sponsors } from '#data/sponsorship'
 
 function handlePrint() {
-  const printContent = document.getElementById('sponsorship-table').innerHTML
-  const printWindow = window.open('', '_blank')
+  const printContent = document.getElementById('sponsorship-table')!.innerHTML
+  const printWindow = window.open('', '_blank')!
   printWindow.document.write(`
     <html>
       <head>

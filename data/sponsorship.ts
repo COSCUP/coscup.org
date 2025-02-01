@@ -11,7 +11,9 @@
 
 import { ref } from 'vue'
 
-export const sponsorLevels = [
+export type I_SponsorLevels = string[]
+
+export const sponsorLevels: I_SponsorLevels = [
   '鈦金級',
   '鑽石級',
   '黃金級',
@@ -21,13 +23,21 @@ export const sponsorLevels = [
   '海外講者',
 ]
 
-export const addons = ref([
+export interface I_Addon {
+  category: string
+  items: {
+    details: string | string[]
+    available: boolean
+    eligibility: Record<string, string | false>
+  }[]
+}
+
+export const addons = ref<I_Addon[]>([
   {
     category: '攤位',
     items: [
       {
         details: '',
-        limit: '',
         available: true,
         eligibility: {
           鈦金級: '82,500',
@@ -222,7 +232,16 @@ export const addons = ref([
   },
 ])
 
-export const sponsors = ref([
+export interface I_Sponsor {
+  level: string
+  price: {
+    main: string
+    details?: string[]
+  }
+  benefits: Record<string, string[]>
+}
+
+export const sponsors = ref<I_Sponsor[]>([
   {
     level: '鈦金級',
     price: {
@@ -372,7 +391,13 @@ export const sponsors = ref([
   },
 ])
 
-export const faqList = ref([
+export interface I_FaqList {
+  question: string
+  answer: string
+  isOpen: boolean
+}
+
+export const faqList = ref<I_FaqList[]>([
   {
     question: '除了目前的贊助方案，還可以贊助其他項目嗎？或是不需要某些項目換折扣',
     answer: 'COSCUP 歡迎洽談客製化贊助方案，請來信聯繫我們：sponsorship@coscup.org',
