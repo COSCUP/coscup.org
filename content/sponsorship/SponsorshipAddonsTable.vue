@@ -41,11 +41,6 @@ function handlePrint() {
           .unavailable-mark {
             color: #dc2626;
           }
-          @media print {
-            .no-print {
-              display: none;
-            }
-          }
         </style>
       </head>
       <body>
@@ -60,12 +55,9 @@ function handlePrint() {
 
 <template>
   <div class="addons-container">
-    <button
-      class="print-button no-print"
-      @click="handlePrint"
-    >
+    <VPButton @click="handlePrint">
       Print Sponsorship Adds-on Table
-    </button>
+    </VPButton>
 
     <div id="addons-table">
       <table class="addons-table">
@@ -193,12 +185,5 @@ td {
 
 .unavailable-mark {
   color: #dc2626;
-}
-
-/* Print-specific styles */
-@media print {
-  .no-print {
-    display: none;
-  }
 }
 </style>
