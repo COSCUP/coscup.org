@@ -49,11 +49,6 @@ function handlePrint() {
           .benefit-item p {
             margin: 0;
           }
-          @media print {
-            .no-print {
-              display: none;
-            }
-          }
         </style>
       </head>
       <body>
@@ -68,12 +63,9 @@ function handlePrint() {
 
 <template>
   <div class="sponsorship-container">
-    <button
-      class="print-button no-print"
-      @click="handlePrint"
-    >
+    <VPButton @click="handlePrint">
       Print Sponsorship Table
-    </button>
+    </VPButton>
 
     <div id="sponsorship-table">
       <table class="sponsorship-table">
@@ -130,17 +122,6 @@ function handlePrint() {
 </template>
 
 <style scoped>
-/* Button styling */
-.print-button {
-  margin-bottom: 20px;
-  padding: 8px 16px;
-  background-color: #4caf50;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
 /* Table styling */
 .sponsorship-table {
   width: 100%;
@@ -190,12 +171,5 @@ td {
 
 .benefit-item p {
   margin: 0;
-}
-
-/* Print-specific styles */
-@media print {
-  .no-print {
-    display: none;
-  }
 }
 </style>
