@@ -14,9 +14,9 @@
  * Conference date: {{ start }} ~ {{ end }}
  */
 export const conference = {
-  title: 'COSCUP 2024',
+  title: 'COSCUP 2025',
   description: 'Conference for Open Source Coders, Users & Promoters',
-  year: 2024,
-  startDate: new Date('2024-08-03'),
-  endDate: new Date('2024-08-04'),
+  year: 2025,
+  startDate: new Date('2025-08-09'),
+  endDate: new Date('2025-08-10'),
 }
