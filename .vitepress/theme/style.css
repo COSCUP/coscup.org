@@ -128,3 +128,13 @@
 .DocSearch {
   --docsearch-primary-color: var(--vp-c-brand-1) !important;
 }
+
+/**
+ * Component: Aside
+ * -------------------------------------------------------------------------- */
+
+.aside-container {
+  position: sticky !important;
+  padding-top: 0 !important;
+  top: calc(var(--vp-nav-height) + var(--vp-layout-top-height, 0px) + var(--vp-doc-top-height, 0px) + 48px) !important;
+}
