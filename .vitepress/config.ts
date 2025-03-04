@@ -48,7 +48,6 @@ export default defineConfig({
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Event', link: '/event' },
-      { text: 'Participate', link: '/participate' },
       { text: 'About', link: '/about' },
     ],
 
