@@ -39,6 +39,29 @@ import { conference } from '#data/conference.js'
     </section>
     <section class="social">
       <h1>Social Media</h1>
+      <p>
+        <a href="https://blog.coscup.org">
+          <IconFaBrandsBlogger />
+        </a>
+        <a href="https://www.facebook.com/coscup">
+          <IconFaBrandsFacebookSquare />
+        </a>
+        <a href="https://www.flickr.com/photos/coscup">
+          <IconFaBrandsFlickr />
+        </a>
+        <a href="https://twitter.com/coscup">
+          <IconFaBrandsTwitterSquare />
+        </a>
+        <a href="https://www.youtube.com/user/thecoscup">
+          <IconFaBrandsYoutubeSquare />
+        </a>
+        <a href="https://t.me/coscupchat">
+          <IconFaBrandsTelegram />
+        </a>
+        <a href="https://coscup.medium.com/">
+          <IconFaBrandsMedium />
+        </a>
+      </p>
     </section>
   </footer>
 </template>
@@ -78,17 +101,21 @@ import { conference } from '#data/conference.js'
   row-gap: 25px;
 }
 
-#footer .history p {
+#footer :where(.history, .social) p {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   row-gap: 25px;
 }
 
-#footer .history span {
+#footer :where(.history, .social) :is(span, a) {
   display: inline-block;
   width: 65px;
 
   text-align: center;
+}
+
+#footer .social {
+  font-size: 24px;
 }
 </style>
