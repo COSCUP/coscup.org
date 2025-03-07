@@ -6,7 +6,10 @@ import { FileSystemIconLoader } from 'unplugin-icons/loaders'
 
 // Subpath imports (e.g. '#data') for TypeScript files are not supported
 // See https://github.com/vuejs/vitepress/issues/4173
-import { conference } from '../data/conference'
+
+import { conference } from '../../data/conference'
+import { en } from './en'
+import { zh_tw } from './zh_tw'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -43,19 +46,11 @@ export default defineConfig({
   srcDir: 'content',
   base: '/coscup.org',
   cleanUrls: true,
-  themeConfig: {
-    // https://vitepress.dev/reference/default-theme-config
-    nav: [
-      { text: 'Home', link: '/' },
-      { text: 'Event', link: '/event' },
-      { text: 'About', link: '/about' },
-    ],
-
-    sidebar: [
-    ],
-
-    socialLinks: [
-      { icon: 'github', link: 'https://github.com/COSCUP' },
-    ],
+  rewrites: {
+    'zh_tw/:rest*': ':rest*',
+  },
+  locales: {
+    root: { label: '繁體中文', ...zh_tw },
+    en: { label: 'English', ...en },
   },
 })
