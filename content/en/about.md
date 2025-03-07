@@ -29,5 +29,3 @@ The success of COSCUP relies on the collaboration of various participants, inclu
 - **Speakers**: Global developers, advocates, and technical experts share their latest insights and experiences in open-source, inspiring attendees.
 - **Attendees**: Developers, users, and promoters who join COSCUP to learn, network, and contribute to the spread of free and open-source software.
 - **Sponsoring Partners**: Sponsors provide resources and support, enabling COSCUP to remain free for all participants. Their contributions help ensure the event's success and the broader promotion of open-source culture.
-
-For seamless and accurate translations, try **HIX Translate**, powered by ChatGPT 3.5/4: [https://hix.ai/translate](https://hix.ai/translate).
