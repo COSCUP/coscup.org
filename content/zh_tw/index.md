@@ -11,9 +11,6 @@ hero:
       text: 8/9 ~ 8/10
       link: /event
     - theme: alt
-      text: Call for Sponsor
-      link: #
-    - theme: alt
-      text: Call for Community
-      link: #
+      text: 早鳥加入指南
+      link: https://blog.coscup.org/2025/01/early-guide-to-joining-coscup-2025.html?m=1
 ---

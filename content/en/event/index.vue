@@ -5,7 +5,7 @@ import { conference } from '#data/conference'
 const start = conference.startDate.toLocaleDateString()
 const end = conference.endDate.toLocaleDateString()
 
-const venueAddress = '106 台北市大安區基隆路四段 43 號'
+const venueAddress = 'No. 43 Keelung Road, Section 4, Taipei 106, Taiwan'
 
 // Supported calendar types by `calendar-link`
 type CalendarType = keyof typeof import('calendar-link')
@@ -41,7 +41,7 @@ async function addToCalendar(type: CalendarType) {
   <section class="info custom-block">
     <div class="info-section">
       <p class="custom-block-title">
-        <IconPhCalendarDots />日期
+        <IconPhCalendarDots /> Date
       </p>
       <h2>{{ start }} – {{ end }}</h2>
       <div class="actions">
@@ -49,7 +49,7 @@ async function addToCalendar(type: CalendarType) {
           theme="alt"
           @click="addToCalendar('google')"
         >
-          <IconPhGoogleLogo /> Google 日曆
+          <IconPhGoogleLogo /> Google Calendar
         </VPButton>
         <VPButton
           theme="alt"
@@ -76,9 +76,9 @@ async function addToCalendar(type: CalendarType) {
   <section class="info custom-block">
     <div class="info-section">
       <p class="custom-block-title">
-        <IconPhMapPin />位置
+        <IconPhMapPin /> Location
       </p>
-      <h2>國立臺灣科技大學</h2>
+      <h2>NTUST</h2>
       <p>{{ venueAddress }}<CopyButton :source="venueAddress" /></p>
       <LeafletMap class="map" />
       <div class="actions">
@@ -87,21 +87,21 @@ async function addToCalendar(type: CalendarType) {
           target="_blank"
           theme="alt"
         >
-          <IconPhMagnifyingGlass /> 開放街圖
+          <IconPhMagnifyingGlass /> Open Street Map
         </VPButton>
         <VPButton
           href="https://www.google.com/maps/search/?api=1&query=國立臺灣科技大學&query_place_id=ChIJrcDEdiGqQjQRVfQp7kRe25A"
           target="_blank"
           theme="alt"
         >
-          <IconPhGoogleLogo /> Google 地圖
+          <IconPhGoogleLogo /> Google Map
         </VPButton>
         <VPButton
           href="https://maps.apple.com/place?auid=1091116063745527859"
           target="_blank"
           theme="alt"
         >
-          <IconPhAppleLogo /> Apple 地圖
+          <IconPhAppleLogo /> Apple Map
         </VPButton>
       </div>
     </div>
